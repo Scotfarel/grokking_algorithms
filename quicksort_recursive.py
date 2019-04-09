@@ -9,9 +9,10 @@ def quicksort(array):
     if len(array) < 2:
         return array
 
-    pivot = array[0]
-    less = [elem for elem in array[1:] if elem <= pivot]
-    greater = [elem for elem in array[1:] if elem > pivot]
+    pivot = array[random.randint(0, len(array) - 1)]
+
+    less = [elem for elem in array if elem <= pivot and elem is not pivot]
+    greater = [elem for elem in array if elem > pivot and elem is not pivot]
 
     return quicksort(less) + [pivot] + quicksort(greater)
  
